@@ -23,7 +23,7 @@ public class StateCensusTest {
             analyser.readStateData();
         } catch (CensusException |IOException  e) {
             e.printStackTrace();
-            Assert.assertEquals("File not found",e.getMessage());
+            Assert.assertEquals("File not found...",e.getMessage());
         }
     }
 
