@@ -32,9 +32,9 @@ public class StateCensusAnalyser {
                 throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
             }
             catch(RuntimeException e){
-                throw new CustomException(CustomException.ExceptionType.DELEMETER_NOT_FOUND,"Delimeter not found");
+                e.printStackTrace();
+                throw new CustomException(CustomException.ExceptionType.INCORRECT_HEADER,"incorrect header in CSV file");
             }
-
             return count;
         }
 }

@@ -3,15 +3,17 @@ package com.bridgelabz;
 public class CustomException extends Exception {
 
     public enum ExceptionType {
-        FILE_NOT_FOUND,INCORRECT_TYPE,DELEMETER_NOT_FOUND
+        FILE_NOT_FOUND,INCORRECT_TYPE,DELEMETER_NOT_FOUND,INCORRECT_HEADER
     }
+
     public ExceptionType type;
-    public CustomException(ExceptionType type, String message) {
+
+   public CustomException(ExceptionType type, String message) {
         super(message);
         this.type = type;
     }
 
-    public CustomException(ExceptionType type) {
+   public CustomException(ExceptionType type) {
         this.type = type;
     }
 
@@ -19,7 +21,6 @@ public class CustomException extends Exception {
         super(message);
         this.type = type;
     }
-
     public CustomException(String message, Throwable cause, ExceptionType type) {
         super(message, cause);
         this.type = type;

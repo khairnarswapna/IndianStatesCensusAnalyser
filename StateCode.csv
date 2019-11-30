@@ -1,10 +1,10 @@
-SrNo,StateName,TIN,StateCode
+SrNo,StateName
 1,Andaman and Nicobar Islands,35,AN
 2,Andhra Pradesh,28,AP
 3,Andhra Pradesh New,37,AD
 4,Arunachal Pradesh,12,AR
 5,Assam,18,AS
-6,Bihar 10 BH
+6,Bihar,10,BH
 7,Chandigarh,04,CH
 8,Chattisgarh,22,CT
 9,Dadra and Nagar Haveli,26,DN

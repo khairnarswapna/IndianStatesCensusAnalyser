@@ -39,7 +39,6 @@ public class StateCensusTest {
             Assert.assertEquals("Incorrect File_Type", e.getMessage());
         }
     }
-
     @Test
     public void givenTheState_CSVFileWhencorrect_ButDelimiterIncorrect_ReturnsCustomException() {
         StateCensusAnalyser s1 = new StateCensusAnalyser();
@@ -48,7 +47,19 @@ public class StateCensusTest {
         } catch (IOException | CustomException e) {
             e.printStackTrace();
             Assert.assertEquals("Delimeter not found", e.getMessage());
+        }
+    }
+    @Test
+    public void givenTheStateCSVFile_CorrectCsvHeader_Incorrect_ReturnCustomException() throws IOException {
+
+        StateCensusAnalyser s1 = new StateCensusAnalyser();
+        try {
+            Assert.assertEquals(37, s1.readStateRecord());
+        } catch ( CustomException e) {
+            System.out.println("incorrect header in CSV file");
+            Assert.assertEquals(CustomException.ExceptionType.INCORRECT_HEADER,e.type);
 
         }
+
     }
 }
