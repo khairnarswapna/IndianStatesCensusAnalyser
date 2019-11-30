@@ -13,7 +13,6 @@ public class State {
     public void setSrNo(String srNo) {
         this.srNo = srNo;
     }
-
     public String getStateName() {
         return stateName;
     }

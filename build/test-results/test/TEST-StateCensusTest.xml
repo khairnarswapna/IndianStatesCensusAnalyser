@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-29T13:23:15" hostname="admin142-desktop" time="0.024">
+<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-30T09:20:11" hostname="admin142-desktop" time="0.062">
   <properties/>
-  <testcase name="toTestFilePresentOrNot" classname="StateCensusTest" time="0.024"/>
+  <testcase name="givenTheState_CSVFileWhencorrect_ButDelimiterIncorrect_ReturnsCustomException" classname="StateCensusTest" time="0.062"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[com.bridgelabz.CensusException: File not found
-	at com.bridgelabz.StateCensusAnalyser.readStateData(StateCensusAnalyser.java:35)
-	at StateCensusTest.toTestFilePresentOrNot(StateCensusTest.java:23)
+  <system-err><![CDATA[com.bridgelabz.CustomException: Delimeter not found
+	at com.bridgelabz.StateCensusAnalyser.readStateRecord(StateCensusAnalyser.java:35)
+	at StateCensusTest.givenTheState_CSVFileWhencorrect_ButDelimiterIncorrect_ReturnsCustomException(StateCensusTest.java:50)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
