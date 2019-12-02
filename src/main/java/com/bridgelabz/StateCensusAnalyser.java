@@ -54,8 +54,6 @@ public class StateCensusAnalyser {
             }
              return count;
         }
-
-        /*--------------------------------------------------------------------------*/
     public int getStateCensusRecord() throws CustomException {
         int count1=0;
         try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));)
