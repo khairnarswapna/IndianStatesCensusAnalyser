@@ -3,6 +3,7 @@ package com.bridgelabz;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -12,13 +13,18 @@ import java.util.Iterator;
 
 public class StateCensusAnalyser {
 
-       // private static final String SAMPLE_CSV_FILE_PATH = "/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv";
-        private static final String SAMPLE_CSV_FILE_PATH= "/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv";
-        public int readStateRecord() throws IOException, CustomException, RuntimeException {
+       private String SAMPLE_CSV_FILE_PATH="";
+       public StateCensusAnalyser() {
+
+         }
+         public StateCensusAnalyser(String SAMPLE_CSV_FILE_PATH)
+         {
+             this.SAMPLE_CSV_FILE_PATH=SAMPLE_CSV_FILE_PATH;
+         }
+         public int readStateRecord() throws IOException, CustomException, RuntimeException {
             int count=0;
-            try (
+            try {
                     Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
-            ) {
                 CsvToBean<State> csvToBean = new CsvToBeanBuilder(reader)
                         .withType(State.class)
                         .withIgnoreLeadingWhiteSpace(true)
@@ -32,8 +38,7 @@ public class StateCensusAnalyser {
                 throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
             }
             catch(RuntimeException e){
-                e.printStackTrace();
-                throw new CustomException(CustomException.ExceptionType.INCORRECT_HEADER,"incorrect header in CSV file");
+                throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");
             }
             return count;
         }
