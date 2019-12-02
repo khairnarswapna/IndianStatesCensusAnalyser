@@ -21,17 +21,19 @@ public class StateCensusAnalyser {
          {
              this.SAMPLE_CSV_FILE_PATH=SAMPLE_CSV_FILE_PATH;
          }
-         public int readStateRecord() throws IOException, CustomException, RuntimeException {
+         public int readStateRecord() throws CustomException {
             int count=0;
-            try {
-                    Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
+            try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));)
+            {
                 CsvToBean<State> csvToBean = new CsvToBeanBuilder(reader)
                         .withType(State.class)
                         .withIgnoreLeadingWhiteSpace(true)
+                        .withThrowExceptions(false)
                         .build();
                 Iterator<State> csvUserIterator = csvToBean.iterator();
                 while (csvUserIterator.hasNext()) {
                     State state = csvUserIterator.next();
+                    System.out.println(" count : "+count);
                         count++;
                 }
             } catch (NoSuchFileException e) {
@@ -39,7 +41,31 @@ public class StateCensusAnalyser {
             }
             catch(RuntimeException e){
                 throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            return count;
+             return count;
         }
+
+    public int getStateCensusRecord() throws CustomException {
+        int count=0;
+        try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));)
+        {
+            CsvToBean<StateCensusData> csvToBean = new CsvToBeanBuilder(reader)
+                    .withType(StateCensusData.class)
+                    .withIgnoreLeadingWhiteSpace(true)
+                    .withThrowExceptions(false)
+                    .build();
+            Iterator<StateCensusData> csvUserIterator = csvToBean.iterator();
+            while (csvUserIterator.hasNext()) {
+                StateCensusData state1 = csvUserIterator.next();
+                System.out.println(" count : "+count);
+                count++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 }

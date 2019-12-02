@@ -6,6 +6,7 @@ import org.junit.rules.ExpectedException;
 import java.io.IOException;
 public class StateCensusTest {
 
+
     @Test
     public void when_Read_CSV_File_Count_Records_Should_Return_True() throws IOException, CustomException {
         StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv");
@@ -14,15 +15,14 @@ public class StateCensusTest {
     }
 
     @Test
-    public void when_Incorrect_CSV_File_Should_Return_False() throws IOException{
+    public void when_Incorrect_CSV_File_Should_Return_False() {
         StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode2.csv");
+        ExpectedException exceptionRule = ExpectedException.none();
+        exceptionRule.expect(CustomException.class);
         try {
-            ExpectedException exceptionRule = ExpectedException.none();
-            exceptionRule.expect(CustomException.class);
-            analyser.readStateRecord();
-        } catch (CustomException | IOException e) {
-            e.printStackTrace();
-            Assert.assertEquals("File not found", e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.FILE_NOT_FOUND, analyser.readStateRecord());
+        } catch (CustomException e) {
+            System.out.println("correct error caught!");
         }
     }
     @Test
@@ -42,13 +42,9 @@ public class StateCensusTest {
         try {
              s1.readStateRecord();
         } catch (CustomException e) {
-
             System.out.println(e.getMessage());
             e.printStackTrace();
-            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);;
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
     }
     @Test
@@ -63,5 +59,13 @@ public class StateCensusTest {
         }
 
     }
+    /*-----------------------------------------------------------------------------------*/
+    @Test
+    public void when_ReadstateCensusCSV_File_Count_Records_Should_Return_True() throws IOException, CustomException {
+        StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv");
+        System.out.println("No of Records in StateCSV: "+analyser.getStateCensusRecord());
+        Assert.assertEquals(29, analyser.getStateCensusRecord());
+    }
+
 
 }

@@ -1,10 +1,17 @@
 package com.bridgelabz;
 
+import com.opencsv.bean.CsvBindByName;
+
 public class State {
+
+    @CsvBindByName(column = "SrNo")
     private String srNo;
-    private String stateName;
-    private String stateCode;
+    @CsvBindByName(column = "StateName")
+    private String StateName;
+    @CsvBindByName(column = "TIN")
     private String TIN;
+    @CsvBindByName(column = "StateCode")
+    private String StateCode;
 
     public String getSrNo() {
         return srNo;
@@ -14,19 +21,19 @@ public class State {
         this.srNo = srNo;
     }
     public String getStateName() {
-        return stateName;
+        return StateName;
     }
 
     public void setStateName(String stateName) {
-        this.stateName = stateName;
+        this.StateName = stateName;
     }
 
     public String getStateCode() {
-        return stateCode;
+        return StateCode;
     }
 
     public void setStateCode(String stateCode) {
-        this.stateCode = stateCode;
+        this.StateCode = stateCode;
     }
 
     public String getTIN() {
@@ -40,8 +47,8 @@ public class State {
     public String toString() {
         return "State{" +
                 "srNo='" + srNo + '\'' +
-                ", stateName='" + stateName + '\'' +
-                ", stateCode='" + stateCode + '\'' +
+                ", stateName='" + StateName + '\'' +
+                ", stateCode='" + StateCode + '\'' +
                 ", TIN='" + TIN + '\'' +
                 '}';
     }
