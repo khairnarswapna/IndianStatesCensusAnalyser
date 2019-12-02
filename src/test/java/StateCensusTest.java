@@ -67,5 +67,16 @@ public class StateCensusTest {
         Assert.assertEquals(29, analyser.getStateCensusRecord());
     }
 
+    @Test
+    public void whenReadFileTyeisIncorrect_shouldReturnfalse() throws IOException, CustomException {
+        StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/src/main/resources/StateCode2.csv");
+        try {
+             analyser.getStateCensusRecord();
+        } catch (CustomException e) {
+            e.printStackTrace();
+            Assert.assertEquals("Incorrect File_Type", e.getMessage());
+        }
+    }
+
 
 }

@@ -62,6 +62,12 @@ public class StateCensusAnalyser {
                 System.out.println(" count : "+count);
                 count++;
             }
+        } catch (NoSuchFileException e) {
+            //throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
+            throw new CustomException(CustomException.ExceptionType.INCORRECT_TYPE,"Incorrect File_Type");
+        }
+        catch(RuntimeException e){
+            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");
         } catch (IOException e) {
             e.printStackTrace();
         }
