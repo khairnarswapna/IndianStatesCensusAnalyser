@@ -87,6 +87,19 @@ public class StateCensusTest {
             Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
     }
+    @Test
+    public void givenTheStateCensusCSVFile_CorrectCsvHeader_Incorrect_ReturnCustomException() throws IOException {
+
+        StateCensusAnalyser s2 = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv");
+        try {
+             s2.getStateCensusRecord();
+        } catch ( CustomException e) {
+            e.printStackTrace();
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,e.type);
+        }
+
+    }
+
 
 
 }

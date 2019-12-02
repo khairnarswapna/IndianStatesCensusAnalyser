@@ -47,10 +47,9 @@ public class StateCensusAnalyser {
                 }
             } catch (NoSuchFileException e) {
                 throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
-            }
-            /*catch(RuntimeException e){
-                throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");*/
-             catch (IOException e) {
+            } catch(RuntimeException e) {
+                throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, "delimeter incorrect or Header incorrect or Binding problem at runtime");
+            } catch (IOException e) {
                 e.printStackTrace();
             }
              return count;
@@ -73,7 +72,6 @@ public class StateCensusAnalyser {
             }
         } catch (NoSuchFileException e) {
             throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
-
         }
         catch(RuntimeException e){
             throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");
