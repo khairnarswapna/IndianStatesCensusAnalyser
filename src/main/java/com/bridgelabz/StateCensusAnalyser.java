@@ -21,7 +21,7 @@ public class StateCensusAnalyser {
          {
              this.SAMPLE_CSV_FILE_PATH=SAMPLE_CSV_FILE_PATH;
          }
-         public int readStateRecord() throws CustomException {
+         public int readStateRecord() throws CustomException, IOException {
             int count=0;
             try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));)
             {
@@ -33,22 +33,32 @@ public class StateCensusAnalyser {
                 Iterator<State> csvUserIterator = csvToBean.iterator();
                 while (csvUserIterator.hasNext()) {
                     State state = csvUserIterator.next();
-                    System.out.println(" count : "+count);
+                    System.out.println("SrNo : " + state.getSrNo());
+                    System.out.println("StateName : " + state.getStateName());
+                    System.out.println("TIN : " + state.getTIN());
+                    System.out.println("StateCode : " + state.getStateCode());
+                    System.out.println("==========================");
+                  //  System.out.println(" count : "+count);
                         count++;
+                    if(state.getSrNo() == null || state.getStateName() == null || state.getTIN() == null
+                            || state.getStateCode() == null){
+                        throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");
+                    }
                 }
             } catch (NoSuchFileException e) {
                 throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
             }
-            catch(RuntimeException e){
-                throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");
-            } catch (IOException e) {
+            /*catch(RuntimeException e){
+                throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");*/
+             catch (IOException e) {
                 e.printStackTrace();
             }
              return count;
         }
 
+        /*--------------------------------------------------------------------------*/
     public int getStateCensusRecord() throws CustomException {
-        int count=0;
+        int count1=0;
         try (Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));)
         {
             CsvToBean<StateCensusData> csvToBean = new CsvToBeanBuilder(reader)
@@ -59,19 +69,18 @@ public class StateCensusAnalyser {
             Iterator<StateCensusData> csvUserIterator = csvToBean.iterator();
             while (csvUserIterator.hasNext()) {
                 StateCensusData state1 = csvUserIterator.next();
-                System.out.println(" count : "+count);
-                count++;
+                count1++;
             }
         } catch (NoSuchFileException e) {
-            //throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
-            throw new CustomException(CustomException.ExceptionType.INCORRECT_TYPE,"Incorrect File_Type");
+            throw new CustomException(CustomException.ExceptionType.FILE_NOT_FOUND,"File not found");
+
         }
         catch(RuntimeException e){
             throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,"delimeter incorrect or Header incorrect or Binding problem at runtime");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return count;
+        return count1;
     }
 
 }

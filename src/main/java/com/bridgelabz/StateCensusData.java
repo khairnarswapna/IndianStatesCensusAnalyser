@@ -3,6 +3,8 @@ package com.bridgelabz;
 import com.opencsv.bean.CsvBindByName;
 
 public class StateCensusData {
+    public StateCensusData() {
+    }
 
     @CsvBindByName(column = "State")
     private String State;

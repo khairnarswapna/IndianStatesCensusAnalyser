@@ -15,7 +15,7 @@ public class StateCensusTest {
     }
 
     @Test
-    public void when_Incorrect_CSV_File_Should_Return_False() {
+    public void when_Incorrect_CSV_File_Should_Return_False() throws IOException {
         StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode2.csv");
         ExpectedException exceptionRule = ExpectedException.none();
         exceptionRule.expect(CustomException.class);
@@ -36,8 +36,7 @@ public class StateCensusTest {
         }
     }
     @Test
-    public void givenTheState_CSVFileWhencorrect_ButDelimiterIncorrect_ReturnsCustomException()
-    {
+    public void givenTheState_CSVFileWhencorrect_ButDelimiterIncorrect_ReturnsCustomException() throws IOException {
         StateCensusAnalyser s1 = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv");
         try {
              s1.readStateRecord();
@@ -75,6 +74,17 @@ public class StateCensusTest {
         } catch (CustomException e) {
             e.printStackTrace();
             Assert.assertEquals("Incorrect File_Type", e.getMessage());
+        }
+    }
+    @Test
+    public void givenTheState_StateCensusCSVFile_Whencorrect_ButDelimiterIncorrect_ReturnsCustomException() throws IOException {
+        StateCensusAnalyser s2 = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv");
+        try {
+            s2.getStateCensusRecord();
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
     }
 
