@@ -1,71 +1,74 @@
 package com.bridgelabz;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import org.modelmapper.ModelMapper;
 
 import javax.swing.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.util.Iterator;
+import java.util.*;
 
-public class StateCensusAnalyser<T>{
+public class StateCensusAnalyser{
 
 
-    private String SAMPLE_CSV_FILE_PATH=" ";
-    public static <T> CsvToBean OpenCSVBuilder(String filename, String classname) {
-        CsvToBean<T> csvToBean;
-        try {
+    List<StateCensus> CsvCensusDataList = new ArrayList<>();
 
-            Class class1 = Class.forName(classname);
-            Reader reader = Files.newBufferedReader(Paths.get(filename));
+    public int getStateCensusRecord(String FilePath,String Class) throws CustomException
+    {
+        int stateCount = 0;
+        Reader reader = null;
+        try
+        {
+            reader = Files.newBufferedReader(Paths.get(FilePath));
+            CsvToBean<StateCensus> csvToBean = new CsvToBeanBuilder(reader).withType(StateCensus.class)
+                    .withIgnoreLeadingWhiteSpace(true).build();
+            Iterator<StateCensus> CsvStateIterator = csvToBean.iterator();
 
-            csvToBean = new CsvToBeanBuilder(reader)
-                    .withType(Class.forName(classname))
-                    .withIgnoreLeadingWhiteSpace(true)
-                    .build();
-            return csvToBean;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static int getCountStateRecords(String SAMPLE_CSV_FILE_PATH, String classname) throws CustomException, IOException, NoSuchFileException {
-        int count = 0;
-        try {
-            CsvToBean<State> csvToBean=OpenCSVBuilder(SAMPLE_CSV_FILE_PATH, classname);
-            Iterator<State> myUserIterator = csvToBean.iterator();
-            while (myUserIterator.hasNext()) {
-                State state = myUserIterator.next();
-                count++;
+            while (CsvStateIterator.hasNext())
+            {
+                stateCount++;
+                StateCensus csvUser = CsvStateIterator.next();
+                CsvCensusDataList.add(csvUser);
             }
-        } catch (RuntimeException e) {
-            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, "ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER");
         }
-        System.out.println(count);
-        return count;
-    }
-
-    public static int getStateCensusRecord(String SAMPLE_CSV_FILE_PATH, String classname) throws CustomException, NoSuchFileException, IOException {
-        int count1=0;
-        try {
-            CsvToBean<StateCensus> csvToBean=OpenCSVBuilder(SAMPLE_CSV_FILE_PATH, classname);
-            Iterator<StateCensus> myUserIterator = csvToBean.iterator();
-            while (myUserIterator.hasNext()) {
-                StateCensus state1 = myUserIterator.next();
-                count1++;
-            }
-        } catch(RuntimeException e){
-            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, "ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER");
+        catch (IOException e)
+        {
+            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, "File Not Found");
         }
-        System.out.println(count1);
-        return count1;
+        catch (RuntimeException e)
+        {
+            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,
+                    "Cannot Map CSV Header Or issue With Delimiter");
+        }
+        return stateCount;
     }
 
 
+    public Boolean storeDataIntoJSON(String FilePath) throws CustomException
+    {
+        Collections.sort(CsvCensusDataList);
+        try
+        {
+            Gson gson = new Gson();
+            String json = gson.toJson(CsvCensusDataList);
+            FileWriter writer = null;
+            writer = new FileWriter(FilePath);
+            writer.write(json);
+            writer.close();
+            return true;
+        }
+        catch (IOException e)
+        {
+            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, "File Not Found");
+        }
+    }
 }
+

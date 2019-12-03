@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T04:46:17" hostname="admin142-desktop" time="0.079">
+<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T13:39:46" hostname="admin142-desktop" time="0.099">
   <properties/>
-  <testcase name="when_Read_StateCensusCSVFile_Count_Records_Should_Return_True" classname="StateCensusTest" time="0.079"/>
-  <system-out><![CDATA[29
-]]></system-out>
+  <testcase name="storeCSVFileIntoJSON" classname="StateCensusTest" time="0.099"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
