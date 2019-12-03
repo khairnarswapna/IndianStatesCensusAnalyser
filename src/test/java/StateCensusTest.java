@@ -51,7 +51,6 @@ public class StateCensusTest {
         }
 
     }
-
     @Test
     public void when_CorrectCSVFile_But_Header_Incorrect_Should_Return_False() throws IOException {
         try {
@@ -62,7 +61,7 @@ public class StateCensusTest {
         }
 
     }
-    // ------------------------------------------------------------------------------------------------------------
+    /*------------------------------------------------------------------------------------------------------------*/
     @Test
     public void when_Read_StateCensusCSVFile_Count_Records_Should_Return_True() throws IOException {
         try {
