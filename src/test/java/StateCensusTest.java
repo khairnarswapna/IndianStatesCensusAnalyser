@@ -6,100 +6,113 @@ import org.junit.rules.ExpectedException;
 import java.io.IOException;
 public class StateCensusTest {
 
-
+    StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
     @Test
-    public void when_Read_CSV_File_Count_Records_Should_Return_True() throws IOException, CustomException {
-        StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv");
-        System.out.println("No of Records in StateCSV: "+analyser.readStateRecord());
-        Assert.assertEquals(37, analyser.readStateRecord());
-    }
-
-    @Test
-    public void when_Incorrect_CSV_File_Should_Return_False() throws IOException {
-        StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode2.csv");
-        ExpectedException exceptionRule = ExpectedException.none();
-        exceptionRule.expect(CustomException.class);
+    public void when_ReadCSVFile_Count_Records_Should_Return_True() {
         try {
-            Assert.assertEquals(CustomException.ExceptionType.FILE_NOT_FOUND, analyser.readStateRecord());
-        } catch (CustomException e) {
-            System.out.println("correct error caught!");
-        }
-    }
-    @Test
-    public void whenFileTyeisIncorrect_shouldReturnfalse() throws IOException, CustomException {
-        StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv");
-        try {
-            Assert.assertEquals(37, analyser.readStateRecord());
-        } catch (CustomException e) {
-            e.printStackTrace();
-            Assert.assertEquals("Incorrect File_Type", e.getMessage());
-        }
-    }
-    @Test
-    public void givenTheState_CSVFileWhencorrect_ButDelimiterIncorrect_ReturnsCustomException() throws IOException {
-        StateCensusAnalyser s1 = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv");
-        try {
-             s1.readStateRecord();
+            Assert.assertEquals(37, stateCensusAnalyser.getCountStateRecords("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv","com.bridgelabz.State"));
         } catch (CustomException e) {
             System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.FILE_NOT_FOUND, e.type);
+        } catch (IOException e) {
             e.printStackTrace();
-            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
-    }
-    @Test
-    public void givenTheStateCSVFile_CorrectCsvHeader_Incorrect_ReturnCustomException() throws IOException {
-
-        StateCensusAnalyser s1 = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv");
-        try {
-            Assert.assertEquals(37, s1.readStateRecord());
-        } catch ( CustomException e) {
-            e.printStackTrace();
-            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,e.type);
-        }
-
-    }
-    /*-----------------------------------------------------------------------------------*/
-    @Test
-    public void when_ReadstateCensusCSV_File_Count_Records_Should_Return_True() throws IOException, CustomException {
-        StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv");
-        System.out.println("No of Records in StateCSV: "+analyser.getStateCensusRecord());
-        Assert.assertEquals(29, analyser.getStateCensusRecord());
     }
 
     @Test
-    public void whenReadFileTyeisIncorrect_shouldReturnfalse() throws IOException, CustomException {
-        StateCensusAnalyser analyser = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/src/main/resources/StateCode2.csv");
+    public void when_IncorrectCSVFile_Should_Return_False() throws IOException {
         try {
-             analyser.getStateCensusRecord();
-        } catch (CustomException e) {
-            e.printStackTrace();
-            Assert.assertEquals("Incorrect File_Type", e.getMessage());
-        }
-    }
-    @Test
-    public void givenTheState_StateCensusCSVFile_Whencorrect_ButDelimiterIncorrect_ReturnsCustomException() throws IOException {
-        StateCensusAnalyser s2 = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv");
-        try {
-            s2.getStateCensusRecord();
+            Assert.assertEquals(37, stateCensusAnalyser.getCountStateRecords("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode34.csv","com.bridgelabz.State"));
         } catch (CustomException e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
+            Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE, e.type);
+        }
+
+    }
+
+    @Test
+    public void when_InCorrectCSV_FileType_Should_Return_False() throws IOException {
+        try {
+            Assert.assertEquals(37, stateCensusAnalyser.getCountStateRecords("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv","com.bridgelabz.State"));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
             Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
-    }
-    @Test
-    public void givenTheStateCensusCSVFile_CorrectCsvHeader_Incorrect_ReturnCustomException() throws IOException {
 
-        StateCensusAnalyser s2 = new StateCensusAnalyser("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv");
+    }
+
+    @Test
+    public void when_CorrectCSVFile_But_Delimiter_Incorrect_Should_Return1_False() throws IOException {
         try {
-             s2.getStateCensusRecord();
-        } catch ( CustomException e) {
-            e.printStackTrace();
-            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,e.type);
+            Assert.assertEquals(37, stateCensusAnalyser.getCountStateRecords("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv","com.bridgelabz.State"));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
 
     }
 
+    @Test
+    public void when_CorrectCSVFile_But_Header_Incorrect_Should_Return_False() throws IOException {
+        try {
+            Assert.assertEquals(37, stateCensusAnalyser.getCountStateRecords("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCode.csv","com.bridgelabz.State"));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
 
+    }
+    // ------------------------------------------------------------------------------------------------------------
+    @Test
+    public void when_Read_StateCensusCSVFile_Count_Records_Should_Return_True() throws IOException {
+        try {
+            Assert.assertEquals(29,stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+        } catch (CustomException e) {
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+
+    }
+
+    @Test
+    public void when_Incorrect_StateCensusCSVFile_Should_Return_False() throws IOException {
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+
+    }
+    @Test
+    public void when_InCorrectStateCensusCSVFileType_Should_Return_False() throws IOException {
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+
+    }
+    @Test
+    public void when_CorrectStateCensusCSVFile_But_Delimiter_Incorrect_Should_Return_False() throws IOException {
+
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+
+    }
+    @Test
+    public void when_CorrectStateCensusCSVFile_But_Header_Incorrect_Should_Return_False() throws IOException {
+          try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+
+    }
 
 }

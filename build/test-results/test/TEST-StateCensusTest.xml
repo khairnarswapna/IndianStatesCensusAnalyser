@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T10:40:34" hostname="admin142-desktop" time="0.103">
+<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T04:46:17" hostname="admin142-desktop" time="0.079">
   <properties/>
-  <testcase name="givenTheStateCensusCSVFile_CorrectCsvHeader_Incorrect_ReturnCustomException" classname="StateCensusTest" time="0.103"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="when_Read_StateCensusCSVFile_Count_Records_Should_Return_True" classname="StateCensusTest" time="0.079"/>
+  <system-out><![CDATA[29
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

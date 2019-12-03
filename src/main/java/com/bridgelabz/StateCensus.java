@@ -2,8 +2,8 @@ package com.bridgelabz;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class StateCensusData {
-    public StateCensusData() {
+public class StateCensus {
+    public StateCensus() {
     }
 
     @CsvBindByName(column = "State")
@@ -49,7 +49,7 @@ public class StateCensusData {
 
     @Override
     public String toString() {
-        return "StateCensusData{" +
+        return "StateCensus{" +
                 "State='" + State + '\'' +
                 ", Population='" + Population + '\'' +
                 ", AreaInSqKm='" + AreaInSqKm + '\'' +
