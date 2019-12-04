@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1cc39de-2f8e-4ebc-b079-95afc131d6fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StateCensusData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/StateCensusData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StateCensusJson.json" beforeDir="false" afterPath="$PROJECT_DIR$/StateCensusJson.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-StateCensusTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-StateCensusTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bridgelabz/StateCensus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bridgelabz/StateCensus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bridgelabz/StateCensusAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bridgelabz/StateCensusAnalyser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/StateCensusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StateCensusTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

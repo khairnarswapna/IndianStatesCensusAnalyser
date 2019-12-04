@@ -78,6 +78,7 @@ public class StateCensusAnalyser{
         censusList.sort(c);
 
     }
+    /**/
     public Boolean storeDataIntoJSON(String FilePath) throws CustomException
     {
 
