@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-04T04:45:10" hostname="admin142-desktop" time="0.098">
+<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-04T05:36:22" hostname="admin142-desktop" time="0.078">
   <properties/>
-  <testcase name="storeCSVFileIntoJSON" classname="StateCensusTest" time="0.098"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="givenMessage_JasonFile_ForPopulationDencity_ShoulsReturnPopulationDencity" classname="StateCensusTest" time="0.078"/>
+  <system-out><![CDATA[Cannot Map CSV Header Or issue With Delimiter
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -21,7 +21,6 @@ public class StateCensusTest {
         }
 
     }
-
     @Test
     public void when_Incorrect_StateCensusCSVFile_Should_Return_False() throws IOException {
         try {
@@ -56,13 +55,55 @@ public class StateCensusTest {
     @Test
     public void when_CorrectStateCensusCSVFile_But_Header_Incorrect_Should_Return_False() throws IOException {
           try {
-            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+              Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
         } catch (CustomException e) {
             System.out.println(e.getMessage());
             Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
 
     }
+    @Test
+    public void givenMessage_JasonFile_ForStateName_ShouldReturnAlphabeticOrder() throws IOException, CustomException {
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+            Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON(FILE_PATH_JSON));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+    }
+    @Test
+    public void givenMessage_JasonFile_ForPopulation_ShoulsReturnMostPopulousState() throws IOException, CustomException {
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+            Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON(FILE_PATH_JSON));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+    }
+    @Test
+    public void givenMessage_JasonFile_ForPopulationDencity_ShoulsReturnPopulationDencity() throws IOException, CustomException {
+
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+            Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON(FILE_PATH_JSON));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+    }
+    @Test
+    public void givenMessage_JasonFile_ForArea_ShoulsReturnlargetStateToSmallest() throws IOException, CustomException {
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
+            Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON(FILE_PATH_JSON));
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
+        }
+    }
+
     @Test
     public void storeCSVFileIntoJSON() throws IOException {
         try {
