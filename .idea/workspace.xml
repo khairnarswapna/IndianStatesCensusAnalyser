@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1cc39de-2f8e-4ebc-b079-95afc131d6fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bridgelabz/StateCensusAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bridgelabz/StateCensusAnalyser.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +64,47 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.StateCensusTest.storeCSVFileIntoJSON">
+  <component name="RunManager" selected="Gradle.StateCensusTest.givenMessage_JasonFile_ForPopulationDencity_ShoulsReturnPopulationDencity">
+    <configuration name="StateCensusTest.givenMessage_JasonFile_ForArea_ShoulsReturnlargetStateToSmallest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;StateCensusTest.givenMessage_JasonFile_ForArea_ShoulsReturnlargetStateToSmallest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="StateCensusTest.givenMessage_JasonFile_ForPopulationDencity_ShoulsReturnPopulationDencity" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;StateCensusTest.givenMessage_JasonFile_ForPopulationDencity_ShoulsReturnPopulationDencity&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="StateCensusTest.storeCSVFileIntoJSON" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -104,26 +145,6 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StateCensusTest.when_CorrectStateCensusCSVFile_But_Header_Incorrect_Should_Return_False" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;StateCensusTest.when_CorrectStateCensusCSVFile_But_Header_Incorrect_Should_Return_False&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="StateCensusTest.when_InCorrectStateCensusCSVFileType_Should_Return_False" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -144,33 +165,13 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StateCensusTest.when_Read_StateCensusCSVFile_Count_Records_Should_Return_True" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;StateCensusTest.when_Read_StateCensusCSVFile_Count_Records_Should_Return_True&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.StateCensusTest.storeCSVFileIntoJSON" />
+        <item itemvalue="Gradle.StateCensusTest.givenMessage_JasonFile_ForPopulationDencity_ShoulsReturnPopulationDencity" />
+        <item itemvalue="Gradle.StateCensusTest.givenMessage_JasonFile_ForArea_ShoulsReturnlargetStateToSmallest" />
         <item itemvalue="Gradle.StateCensusTest.when_CorrectStateCensusCSVFile_But_Delimiter_Incorrect_Should_Return_False" />
+        <item itemvalue="Gradle.StateCensusTest.storeCSVFileIntoJSON" />
         <item itemvalue="Gradle.StateCensusTest.when_InCorrectStateCensusCSVFileType_Should_Return_False" />
-        <item itemvalue="Gradle.StateCensusTest.when_Read_StateCensusCSVFile_Count_Records_Should_Return_True" />
-        <item itemvalue="Gradle.StateCensusTest.when_CorrectStateCensusCSVFile_But_Header_Incorrect_Should_Return_False" />
       </list>
     </recent_temporary>
   </component>

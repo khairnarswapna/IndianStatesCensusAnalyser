@@ -45,8 +45,7 @@ public class StateCensusAnalyser{
         }
         catch (RuntimeException e)
         {
-            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME,
-                    "Cannot Map CSV Header Or issue With Delimiter");
+            throw new CustomException(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, "Cannot Map CSV Header Or issue With Delimiter...");
         }
         return stateCount;
     }
@@ -83,7 +82,8 @@ public class StateCensusAnalyser{
     {
 
        //sortListBasedOnStateName(CsvCensusDataList);
-       sortListBasedOnPopulation(CsvCensusDataList);
+        //sortListBasedOnPopulation(CsvCensusDataList);
+        sortListBasedOnDensity(CsvCensusDataList);
         try
         {
             Gson gson = new Gson();
