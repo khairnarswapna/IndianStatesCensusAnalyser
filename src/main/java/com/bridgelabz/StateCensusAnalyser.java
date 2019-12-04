@@ -51,10 +51,14 @@ public class StateCensusAnalyser{
         return stateCount;
     }
 
-
+    private static void sortListBasedOnStateName(List<StateCensus> censusList) {
+        Comparator<StateCensus> c = (s1, s2) -> s1.getState().compareTo(s2.getState());
+        censusList.sort(c);
+    }
     public Boolean storeDataIntoJSON(String FilePath) throws CustomException
     {
         Collections.sort(CsvCensusDataList);
+        sortListBasedOnStateName(CsvCensusDataList);
         try
         {
             Gson gson = new Gson();

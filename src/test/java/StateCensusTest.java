@@ -59,7 +59,7 @@ public class StateCensusTest {
 
     }
     @Test
-    public void  storeCSVFileIntoJSON() throws IOException {
+    public void storeCSVFileIntoJSON() throws IOException {
         try {
             Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
             Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusJson.json"));
@@ -69,5 +69,7 @@ public class StateCensusTest {
         }
 
     }
+
+
 
 }
