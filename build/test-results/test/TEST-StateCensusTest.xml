@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-04T04:34:53" hostname="admin142-desktop" time="0.099">
+<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-04T04:45:10" hostname="admin142-desktop" time="0.098">
   <properties/>
-  <testcase name="storeCSVFileIntoJSON" classname="StateCensusTest" time="0.099"/>
+  <testcase name="storeCSVFileIntoJSON" classname="StateCensusTest" time="0.098"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

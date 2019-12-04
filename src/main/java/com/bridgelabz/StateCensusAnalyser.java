@@ -82,7 +82,8 @@ public class StateCensusAnalyser{
     {
 
        //sortListBasedOnStateName(CsvCensusDataList);
-       sortListBasedOnPopulation(CsvCensusDataList);
+        //sortListBasedOnPopulation(CsvCensusDataList);
+        sortListBasedOnDensity(CsvCensusDataList);
         try
         {
             Gson gson = new Gson();
