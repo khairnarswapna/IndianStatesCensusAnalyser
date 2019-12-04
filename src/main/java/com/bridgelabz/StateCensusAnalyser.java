@@ -18,9 +18,7 @@ import java.util.*;
 
 public class StateCensusAnalyser{
 
-
     List<StateCensus> CsvCensusDataList = new ArrayList<>();
-
     public int getStateCensusRecord(String FilePath,String Class) throws CustomException
     {
         int stateCount = 0;
@@ -54,28 +52,20 @@ public class StateCensusAnalyser{
         Comparator<StateCensus> c = (s1, s2) -> s1.getState().compareTo(s2.getState());
         censusList.sort(c);
     }
-
     private static void sortListBasedOnPopulation(List<StateCensus> censusList)
     {
-
         Comparator<StateCensus> c = (s1, s2) -> Integer.parseInt(s2.getPopulation()) - Integer.parseInt(s1.getPopulation());
         censusList.sort(c);
-
     }
-
     private static void sortListBasedOnDensity(List<StateCensus> censusList)
     {
-
         Comparator<StateCensus> c = (s1, s2) -> Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
         censusList.sort(c);
-
     }
     private static void sortListBasedOnStateArea(List<StateCensus> censusList)
     {
-
         Comparator<StateCensus> c = (s1, s2) -> Integer.parseInt(s2.getAreaInSqKm()) - Integer.parseInt(s1.getAreaInSqKm());
         censusList.sort(c);
-
     }
     /**/
     public Boolean storeDataIntoJSON(String FilePath) throws CustomException
@@ -83,7 +73,8 @@ public class StateCensusAnalyser{
 
        //sortListBasedOnStateName(CsvCensusDataList);
         //sortListBasedOnPopulation(CsvCensusDataList);
-        sortListBasedOnDensity(CsvCensusDataList);
+        //sortListBasedOnDensity(CsvCensusDataList);
+        sortListBasedOnStateArea(CsvCensusDataList);
         try
         {
             Gson gson = new Gson();

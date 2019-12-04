@@ -94,7 +94,7 @@ public class StateCensusTest {
         }
     }
     @Test
-    public void givenMessage_JasonFile_ForArea_ShoulsReturnlargetStateToSmallest() throws IOException, CustomException {
+    public void givenMessage_JasonFile_ForArea_ShoulsReturnsortedbyStateArea() throws IOException, CustomException {
         try {
             Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
             Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON(FILE_PATH_JSON));
