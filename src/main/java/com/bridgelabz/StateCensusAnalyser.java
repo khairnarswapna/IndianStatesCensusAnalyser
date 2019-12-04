@@ -55,10 +55,34 @@ public class StateCensusAnalyser{
         Comparator<StateCensus> c = (s1, s2) -> s1.getState().compareTo(s2.getState());
         censusList.sort(c);
     }
+
+    private static void sortListBasedOnPopulation(List<StateCensus> censusList)
+    {
+
+        Comparator<StateCensus> c = (s1, s2) -> Integer.parseInt(s2.getPopulation()) - Integer.parseInt(s1.getPopulation());
+        censusList.sort(c);
+
+    }
+
+    private static void sortListBasedOnDensity(List<StateCensus> censusList)
+    {
+
+        Comparator<StateCensus> c = (s1, s2) -> Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
+        censusList.sort(c);
+
+    }
+    private static void sortListBasedOnStateArea(List<StateCensus> censusList)
+    {
+
+        Comparator<StateCensus> c = (s1, s2) -> Integer.parseInt(s2.getAreaInSqKm()) - Integer.parseInt(s1.getAreaInSqKm());
+        censusList.sort(c);
+
+    }
     public Boolean storeDataIntoJSON(String FilePath) throws CustomException
     {
-        Collections.sort(CsvCensusDataList);
-        sortListBasedOnStateName(CsvCensusDataList);
+
+       //sortListBasedOnStateName(CsvCensusDataList);
+       sortListBasedOnPopulation(CsvCensusDataList);
         try
         {
             Gson gson = new Gson();

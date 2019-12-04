@@ -2,7 +2,7 @@ package com.bridgelabz;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class StateCensus implements Comparable{
+public class StateCensus  {
     public StateCensus() {
     }
     @CsvBindByName(column = "State")
@@ -56,8 +56,5 @@ public class StateCensus implements Comparable{
                 '}';
     }
 
-    @Override
-    public int compareTo(Object o) {
-         return this.getState().compareTo(((StateCensus)o).getState());
-    }
+
 }

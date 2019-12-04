@@ -4,9 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+
 public class StateCensusTest {
 
+
     StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+    String FILE_PATH_JSON="/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusJson.json";
     @Test
     public void when_Read_StateCensusCSVFile_Count_Records_Should_Return_True() throws IOException {
         try {
@@ -62,14 +67,12 @@ public class StateCensusTest {
     public void storeCSVFileIntoJSON() throws IOException {
         try {
             Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","com.bridgelabz.StateCensus"));
-            Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusJson.json"));
+            Assert.assertTrue(stateCensusAnalyser.storeDataIntoJSON(FILE_PATH_JSON));
         } catch (CustomException e) {
             System.out.println(e.getMessage());
             Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
 
     }
-
-
 
 }
