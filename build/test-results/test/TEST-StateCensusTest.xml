@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-04T13:31:05" hostname="admin142-desktop" time="0.109">
+<testsuite name="StateCensusTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-05T04:37:04" hostname="admin142-desktop" time="0.16">
   <properties/>
-  <testcase name="givenMessage_JasonFile_ForStateName_ShouldReturnAlphabeticOrder" classname="StateCensusTest" time="0.109"/>
-  <system-out><![CDATA[West Bengal
-Uttarakhand
+  <testcase name="givenMessage_JasonFile_ForArea_ShoulsReturnsortedbyStateArea" classname="StateCensusTest" time="0.16"/>
+  <system-out><![CDATA[Rajasthan
+Madhya Pradesh
+Maharashta
 Uttar Pradesh
-Tripura
-Telangana
-Tamil Nadu
-Sikkim
-Rajasthan
-Punjab
+Jammu and Kashmir
+Gujarat
+Karnataka
+Andhra Pradesh
 Odisha
-Nagaland
-Mizoram
+Chattisgarh
+Tamil Nadu
+Telangana
+Bihar
+West Bengal
+Jharkhand
+Assam
+Himachal Pradesh
+Uttarakhand
+Punjab
+Haryana
+Kerala
 Meghalaya
 Manipur
-Maharashta
-Madhya Pradesh
-Kerala
-Karnataka
-Jharkhand
-Jammu and Kashmir
-Himachal Pradesh
-Haryana
-Gujarat
+Mizoram
+Nagaland
+Tripura
+Sikkim
 Goa
-Chattisgarh
-Bihar
-Assam
 Arunachal Pradesh
-Andhra Pradesh
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
