@@ -5,7 +5,6 @@ public class CustomException extends Exception {
     public enum ExceptionType {
         FILE_NOT_FOUND,INCORRECT_TYPE,DELEMETER_NOT_FOUND,INCORRECT_HEADER,BINDING_BROBLEM_AT_RUNTIME,NO_SUCH_FILE
     }
-
     public ExceptionType type;
 
    public CustomException(ExceptionType type, String message) {

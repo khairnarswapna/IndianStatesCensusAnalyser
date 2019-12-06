@@ -21,17 +21,16 @@ public class StateCensusTest {
 
     }
     @Test
-    public void when_Incorrect_StateCensusCSVFile_Should_Return_False() throws IOException {
+    public void when_Incorrect_StateCensus_CSVFile_Should_Return_False() throws IOException {
         try {
             Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv",""));
         } catch (CustomException e) {
             System.out.println(e.getMessage());
             Assert.assertEquals(CustomException.ExceptionType.BINDING_BROBLEM_AT_RUNTIME, e.type);
         }
-
     }
     @Test
-    public void when_InCorrectStateCensusCSVFileType_Should_Return_False() throws IOException {
+    public void when_InCorrectStateCensus_CSVFileType_Should_Return_False() throws IOException {
         try {
             Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv",""));
         } catch (CustomException e) {
@@ -90,7 +89,7 @@ public class StateCensusTest {
         }
     }
     @Test
-    public void givenMessage_JasonFile_ForArea_ShoulsReturnsortedbyStateArea() throws IOException, CustomException {
+    public void givenMessage_JasonFile_ForArea_ShoulsReturn_sortedbyStateArea() throws IOException, CustomException {
         try {
             Assert.assertEquals(29, stateCensusAnalyser.getStateCensusRecord("/home/admin142/IdeaProjects/IndianStateSensusAnalyser/StateCensusData.csv","getAreaInSqKm"));
         } catch (CustomException e) {
